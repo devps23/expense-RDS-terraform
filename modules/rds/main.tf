@@ -13,6 +13,7 @@ resource "aws_db_instance" "db_instance" {
   vpc_security_group_ids = [aws_security_group.rds.id]
   db_subnet_group_name = aws_db_subnet_group.subnet_group.name
   identifier           = "rds-dev"
+  multi_az             = "no"
 }
 resource "aws_db_parameter_group" "pg" {
   name   = "${var.env}-${var.component}-rds"
