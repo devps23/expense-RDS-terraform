@@ -1,0 +1,8 @@
+availability and durability: single
+credential settings: username and password
+DB instance class: db.t3.micro
+storage type/storage : gp3
+allocated storage:20
+vpc
+db subnet group
+public access:no
