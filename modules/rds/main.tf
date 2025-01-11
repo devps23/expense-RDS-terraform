@@ -9,7 +9,7 @@ resource "aws_db_instance" "db_instance" {
   parameter_group_name = aws_db_parameter_group.pg.id
   skip_final_snapshot  = true
   storage_type         = var.storage_type
-  publicly_accessible  = "no"
+  publicly_accessible  = false
   vpc_security_group_ids = [aws_security_group.rds.id]
   db_subnet_group_name = aws_db_subnet_group.subnet_group.name
 }
