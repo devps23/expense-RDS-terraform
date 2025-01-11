@@ -67,11 +67,7 @@ module "rds"{
   engine               = "mysql"
   engine_version       = "8.0.36"
   instance_class       = "db.t3.micro"
-  skip_final_snapshot  = true
   storage_type         = "gp3"
-  publicly_accessible  = "no"
-  vault_token = var.vault_token
-  zone_id = var.zone_id
 }
 # module "mysql" {
 #   source            = "./modules/app"
