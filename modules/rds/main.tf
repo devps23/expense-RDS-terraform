@@ -14,8 +14,6 @@ resource "aws_db_instance" "db_instance" {
   db_subnet_group_name = aws_db_subnet_group.subnet_group.name
   identifier           = "rds-dev"
 }
-
-
 resource "aws_db_parameter_group" "pg" {
   name   = "${var.env}-${var.component}-rds"
   family = "mysql8.0"
