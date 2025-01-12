@@ -29,6 +29,9 @@ resource "aws_instance" "instance" {
 
 
 resource "null_resource" "null_instance" {
+  triggers = {
+    instance = aws_instance.instance.id
+  }
   connection {
     type     = "ssh"
     user     = jsondecode(data.vault_generic_secret.my_secret.data_json).username
