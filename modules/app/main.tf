@@ -4,6 +4,10 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.server_sg.id]
   subnet_id = var.subnets_id[0]
+  root_block_device{
+    encrypted  = true
+    kms_key_id = var.kms_key_id
+  }
    instance_market_options {
     market_type = "spot"
     spot_options {
@@ -16,10 +20,7 @@ resource "aws_instance" "instance" {
     monitor = "yes"
 
   }
-  root_block_device{
-    encrypted  = true
-    kms_key_id = var.kms_key_id
-  }
+
   lifecycle {
     ignore_changes = [
       ami
