@@ -20,7 +20,6 @@ resource "aws_instance" "instance" {
     monitor = "yes"
 
   }
-
   lifecycle {
     ignore_changes = [
       ami
