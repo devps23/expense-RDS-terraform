@@ -49,7 +49,14 @@ for this we can use
 trigger{
 instance = aws_instance.instance.id
 }
-this trigger will work only for null resources
+this trigger will work only for null resources.
+
+
+* to encrypt instance server disk also
+root_block_device{
+encrypted  = true
+kms_key_id = kms_key_id
+}
 
 
 

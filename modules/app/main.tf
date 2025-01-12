@@ -4,7 +4,7 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.server_sg.id]
   subnet_id = var.subnets_id[0]
-  instance_market_options {
+   instance_market_options {
     market_type = "spot"
     spot_options {
       instance_interruption_behavior = "stop"
@@ -15,6 +15,10 @@ resource "aws_instance" "instance" {
     Name = "${var.env}-${var.component}-demo"
     monitor = "yes"
 
+  }
+  root_block_device{
+    encrypted  = true
+    kms_key_id = kms_key_id
   }
   lifecycle {
     ignore_changes = [
