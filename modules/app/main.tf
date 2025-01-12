@@ -4,6 +4,7 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.server_sg.id]
   subnet_id = var.subnets_id[0]
+#   to encrypt the ec2 servers disk with the help of kms key id
   root_block_device{
     encrypted  = true
     kms_key_id = var.kms_key_id
@@ -29,6 +30,7 @@ resource "aws_instance" "instance" {
 
 
 resource "null_resource" "null_instance" {
+#   for every instance id is updated the updated instance id to trigger in null instance also
   triggers = {
     instance = aws_instance.instance.id
   }
