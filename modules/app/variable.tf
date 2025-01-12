@@ -30,3 +30,4 @@ variable certificate_arn{
 variable "lb_app_port" {
   default = {}
 }
+variable "kms_key_id" {}
