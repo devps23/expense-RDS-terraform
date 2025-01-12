@@ -33,6 +33,7 @@ module "frontend" {
    lb_app_port_cidr = ["0.0.0.0/0"]
   certificate_arn = "arn:aws:acm:us-east-1:041445559784:certificate/9019782f-d3d2-47b1-b5c0-b1efba5276b8"
   lb_app_port = {http:80,https:443}
+  kms_key_id         = var.kms_key_id
 }
 module "backend" {
   depends_on = [module.rds]
@@ -53,6 +54,7 @@ module "backend" {
 #   load balancer port cidr connects with backend subnets
   lb_app_port_cidr = var.frontend_subnets
   lb_app_port = {http:8080}
+  kms_key_id = var.kms_key_id
 }
 module "rds"{
   source = "./modules/rds"
