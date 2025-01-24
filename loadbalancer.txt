@@ -34,9 +34,5 @@ http ----> not convert to https
 https -----> convert http
 https -----> https
 
-11/01/2025
-tmrw i need to check healthy
-add application port in security group
-redirect
-rds
+
 
